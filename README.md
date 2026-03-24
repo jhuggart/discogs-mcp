@@ -1,6 +1,6 @@
 # 🎵 Discogs MCP Server
 
-[![Version](https://img.shields.io/badge/version-2.3.0-blue.svg)](https://github.com/rianvdm/discogs-mcp/releases/tag/v2.3.0)
+[![Version](https://img.shields.io/badge/version-2.4.0-blue.svg)](https://github.com/rianvdm/discogs-mcp/releases/tag/v2.4.0)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Cloudflare Workers](https://img.shields.io/badge/Cloudflare-Workers-F38020?logo=cloudflare&logoColor=white)](https://workers.cloudflare.com/)
@@ -15,6 +15,7 @@ A powerful **Model Context Protocol (MCP) server** that enables AI assistants to
 - 🔍 **Advanced Search Intelligence**: Multi-strategy search with OR logic and relevance scoring
 - 📊 **Collection Analytics**: Comprehensive statistics and insights about your music
 - 🎯 **Context-Aware Recommendations**: Smart suggestions based on mood, genre, and similarity
+- ✏️ **Collection Write Tools**: Manage folders, ratings, and custom fields directly through Claude
 - ⚡ **Edge Computing**: Global low-latency responses via Cloudflare Workers
 - 🗂️ **Smart Caching**: Intelligent KV-based caching for optimal performance
 
@@ -92,6 +93,8 @@ This server uses **MCP OAuth 2.1** with Discogs as the identity provider. When y
 
 ### 🔐 Authenticated Tools (Requires Login)
 
+#### Collection Search & Info
+
 | Tool                   | Description                                                     |
 | ---------------------- | --------------------------------------------------------------- |
 | `search_collection`    | Search your collection with intelligent mood and genre matching |
@@ -99,6 +102,30 @@ This server uses **MCP OAuth 2.1** with Discogs as the identity provider. When y
 | `get_collection_stats` | View comprehensive collection statistics                        |
 | `get_recommendations`  | Get context-aware music recommendations                         |
 | `get_cache_stats`      | Monitor cache performance (development)                         |
+
+#### Folder Management
+
+| Tool            | Description                              |
+| --------------- | ---------------------------------------- |
+| `list_folders`  | View all your collection folders         |
+| `create_folder` | Create a new folder                      |
+| `edit_folder`   | Rename an existing folder                |
+| `delete_folder` | Delete a folder (must be empty)          |
+
+#### Collection Items
+
+| Tool                 | Description                                              |
+| -------------------- | -------------------------------------------------------- |
+| `add_to_folder`      | Add a release to a folder by release ID                  |
+| `remove_from_folder` | Remove an item instance from a folder                    |
+| `edit_instance`      | Update an item's rating (1–5) or move it to a folder     |
+
+#### Custom Fields
+
+| Tool                    | Description                                        |
+| ----------------------- | -------------------------------------------------- |
+| `list_custom_fields`    | View your custom field definitions                 |
+| `edit_custom_field`     | Update a custom field value on a collection item   |
 
 ## 📚 MCP Resources
 
